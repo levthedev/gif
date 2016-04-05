@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+
+require 'gif'
+
+gif = Gif::CLI.new
+tags = ARGV.join("+")
+gif.search(tags)
