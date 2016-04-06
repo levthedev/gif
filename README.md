@@ -3,7 +3,7 @@
 gifs in your terminal. because why not?
 - - -
 
-![check it out](http://i.imgur.com/YIMFTvD.gifv)
+![gif of gif](http://i.imgur.com/YIMFTvD.gifv)
 
 ### installation & setup
 
