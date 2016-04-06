@@ -2,6 +2,6 @@
 
 require 'gif'
 
-gif = Gif::CLI.new
-tags = ARGV.join("+")
-gif.search(tags)
+tags = ARGV.join "+"
+gif = Gif::CLI.new tags
+gif.fetch
