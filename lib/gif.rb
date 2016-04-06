@@ -1,19 +1,24 @@
 require 'json'
+require 'tmpdir'
 require 'digest/sha1'
 
 module Gif
   class CLI
-    def initialize tags
+    def initialize tags, loops
       @tags = tags
+      @loops = loops.to_i
     end
 
     def fetch
-      generate_url
-      create_images
-      rename_files
-      gif_to_terminal
-      `rm #{@gif_sha}.gif`
-      `rm #{@resized_sha}`
+      Dir.mktmpdir do |tmp|
+        Dir.chdir(tmp)
+        generate_url
+        create_images
+        rename_files
+        @loops.times { gif_to_terminal }
+        `rm #{@gif_sha}.gif`
+        `rm #{@resized_sha}`
+      end
     end
 
     private
@@ -48,9 +53,10 @@ module Gif
       frames.times do |n|
         system "imgcat -R frames-#{n}"
         sleep 1.0/24
-        `rm frames-#{n}`
+        `rm frames-#{n}` if @loops < 1
         system "⌘ k"
       end
+      @loops -= 1
     end
 
     def fix_colors
@@ -63,8 +69,8 @@ module Gif
       begin
         original_stderr = $stderr.clone
         original_stdout = $stdout.clone
-        $stderr.reopen(File.new('/dev/null', 'w'))
-        $stdout.reopen(File.new('/dev/null', 'w'))
+        $stderr.reopen(File.new("/dev/null", "w"))
+        $stdout.reopen(File.new("/dev/null", "w"))
         retval = yield
       rescue Exception => e
         $stdout.reopen(original_stdout)

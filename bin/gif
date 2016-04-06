@@ -1,13 +1,28 @@
 #!/usr/bin/env ruby
 
 require 'gif'
+require 'optparse'
 
-if ARGV.join.include? "--setup"
-  `brew install gifsicle`
-  `brew tap eddieantonio/eddieantonio`
-  `brew install imgcat`
-else
+loops = 1
+
+options = {}
+OptionParser.new do |parser|
+  parser.on("--l", "--loops") do |times|
+    loops = ARGV.find { |arg| /\A\d+\z/.match(arg).to_s.to_i > 0 }
+  end
+
+  parser.on("--setup", "--s") do |times|
+    options[:setup] = true
+    puts "Installing dependencies (gifsicle, imgcat) now..."
+    `brew install gifsicle`
+    `brew tap eddieantonio/eddieantonio`
+    `brew install imgcat`
+    puts "Finished installing dependencies!"
+  end
+end.parse!
+
+if options[:setup].nil?
   tags = ARGV.join "+"
-  gif = Gif::CLI.new tags
+  gif = Gif::CLI.new tags, loops
   gif.fetch
 end
