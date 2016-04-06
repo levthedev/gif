@@ -1,7 +1,7 @@
 # gifs in your terminal. because why not?
 - - -
 
-![gif of gif](pikachu.gif)
+![gif of gif](looping_pikachu.gif)
 
 ### installation & setup
 
