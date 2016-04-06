@@ -5,24 +5,22 @@
 
 ## installation & setup
 
-`gem install gif` installs this gem
-
-`gif --setup` installs dependencies (gifsicle & imgcat)
+```
+gem install gif
+gif --setup
+gif [SEARCH_TERM] [-loops NUM_LOOPS] [--setup] [--help]
+```
 - - -
 
 ## usage
 
-**NOTE**: this works best when used with iTerm. OSX's built in Terminal doesn't refresh fast enough. Also, the gifs you play will expand to the size of your terminal window. So the bigger your iTerm window (and the more zoomed out you are!), the higher quality the gif will be.
+**NOTE**: this works best when used with **iTerm**. OSX's built in Terminal doesn't refresh fast enough. Also, the gifs you play will expand to the size of your terminal window. So the bigger your iTerm window (and the more zoomed out you are!), the higher quality the gif will be.
 
 `gif` will play a random gif in your terminal
 
-`gif [search_terms]` will filter by search terms.
+`gif [search_terms]` will filter by search terms - `gif pikachu` will cause you to immediately feel 100% happier.
 
-for example, `gif cute pikachu` will cause you to immediately feel 100% happier.
-
-`--loops` or `--l` will let you loop the gif.
-
-for example, `gif cute pikachu --loops 10` will cause you to immediately feel 1000% happier.
+`--loops` or `--l` will let you loop the gif - `gif pikachu --loops 10` will cause you to immediately feel 1000% happier.
 
 `--help`, `--h`, or `man` will print this paragraph.
 - - -
