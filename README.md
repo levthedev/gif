@@ -1,6 +1,4 @@
-# gif
-
-gifs in your terminal. because why not?
+# gifs in your terminal. because why not?
 - - -
 
 ![gif of gif](pikachu.gif)
