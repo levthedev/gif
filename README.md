@@ -3,27 +3,31 @@
 
 ![gif of gif](looping_pikachu.gif)
 
-### installation & setup
+## installation & setup
 
 `gem install gif` installs this gem
 
 `gif --setup` installs dependencies (gifsicle & imgcat)
 - - -
 
-### usage
+## usage
 
 `gif` will play a random gif in your terminal
 
-`gif [search_terms]` will filter by search terms. for example, `gif cute pikachu` will cause you to immediately feel 100% happier.
+`gif [search_terms]` will filter by search terms.
 
-`--loops` or `--l` will let you loop the gif. for example, `gif cute pikachu --loops 10` will cause you to immediately feel 1000% happier.
+for example, `gif cute pikachu` will cause you to immediately feel 100% happier.
+
+`--loops` or `--l` will let you loop the gif.
+
+for example, `gif cute pikachu --loops 10` will cause you to immediately feel 1000% happier.
 
 `--help`, `--h`, or `man` will print this paragraph.
 - - -
 
-### problems
+## problems
 
-you need to have **ruby**, **rubygems**, and **homebrew** installed. windows/linux support will be coming soon - sooner if you make a PR yourself :octocat:
+you need to have **ruby**, **rubygems**, and **homebrew** installed. windows/linux support will be coming soon - sooner if you make a PR yourself.
 
 some gifs will look pretty funky in your terminal. this can happen if they cannot be unoptimized by gifsicle.
 
