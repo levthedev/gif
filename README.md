@@ -9,6 +9,7 @@ gifs in your terminal. because why not?
 `gif` will play a random gif in your terminal
 `gif [search_terms]` will filter by search terms. for example, `gif cute pikachu` will cause you to immediately feel 100% happier.
 `--loops` or `--l` will let you loop the gif. for example, `gif cute pikachu --loops 10` will cause you to immediately feel 1000% happier.
+`--help`, `--h`, or `man` will print this paragraph.
 ---
 ##problems
 you need to have ruby, rubygems, and homebrew installed. unfortunately, this gem doesn't work on windows right now (as it uses homebrew for some dependencies). windows/linux support will be coming soon - sooner if you make a PR yourself :)
