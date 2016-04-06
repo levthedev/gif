@@ -3,6 +3,8 @@
 gifs in your terminal. because why not?
 - - -
 
+![check it out](http://i.imgur.com/YIMFTvD.gifv)
+
 ### installation & setup
 
 `gem install gif` installs this gem
