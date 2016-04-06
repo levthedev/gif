@@ -2,6 +2,12 @@
 
 require 'gif'
 
-tags = ARGV.join "+"
-gif = Gif::CLI.new tags
-gif.fetch
+if ARGV.join.include? "--setup"
+  `brew install gifsicle`
+  `brew tap eddieantonio/eddieantonio`
+  `brew install imgcat`
+else
+  tags = ARGV.join "+"
+  gif = Gif::CLI.new tags
+  gif.fetch
+end
