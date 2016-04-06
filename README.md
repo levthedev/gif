@@ -12,6 +12,8 @@
 
 ## usage
 
+**NOTE**: this works best when used with iTerm. OSX's built in Terminal doesn't refresh fast enough. Also, the gifs you play will expand to the size of your terminal window. So the bigger your iTerm window (and the more zoomed out you are!), the higher quality the gif will be.
+
 `gif` will play a random gif in your terminal
 
 `gif [search_terms]` will filter by search terms.
