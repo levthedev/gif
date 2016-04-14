@@ -17,10 +17,11 @@ OptionParser.new do |parser|
 
   parser.on("--setup", "--s") do |_|
     options[:setup] = true
-    puts "Installing dependencies (gifsicle, imgcat) now..."
+    puts "Installing dependencies (gifsicle, imgcat, imgcat-cli) now..."
     `brew install gifsicle`
     `brew tap eddieantonio/eddieantonio`
     `brew install imgcat`
+    puts "Installing imgcat-cli..."
     `npm install -g imgcat-cli`
     puts "Finished installing dependencies!"
   end
