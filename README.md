@@ -8,7 +8,7 @@
 ```
 gem install gif
 gif --setup
-gif [SEARCH_TERM] [-loops NUM_LOOPS] [--setup] [--help]
+gif [SEARCH_TERM] [-loops NUM_LOOPS] [--modern] [--setup] [--help]
 ```
 - - -
 
@@ -20,16 +20,20 @@ gif [SEARCH_TERM] [-loops NUM_LOOPS] [--setup] [--help]
 
 `gif [search_terms]` will filter by search terms - `gif pikachu` will cause you to immediately feel 100% happier.
 
+`--modern` will give you a much better image resolution, but only works if you have iTerm 2.9 or higher and NPM installed.
+
 `--loops` or `--l` will let you loop the gif - `gif pikachu --loops 10` will cause you to immediately feel 1000% happier.
 
 `--help`, `--h`, or `man` will print this paragraph.
+
+If you have iTerm 2.9 or greater and NPM installed, you should add this line to your bash_profile, fish_config, or whatever other shell config you use - `export MODERN_TERMINAL="true"`. This will do the same thing as passing the --modern flag to all your `gif` commands.
 - - -
 
 ## problems
 
-you need to have **ruby**, **rubygems**, and **homebrew** installed. windows/linux support will be coming soon - sooner if you make a PR yourself.
+you need to have **Ruby**, **RubyGems**, and **Homebrew** installed. **NPM** is required if you want better image resolution.
 
-some gifs will look pretty funky in your terminal. this can happen if they cannot be unoptimized by gifsicle.
+some gifs (especially without the --modern flag) will look pretty funky in your terminal. this can happen if they cannot be unoptimized by gifsicle.
 
 essentially, many gifs are stored where each frame is a diff. gifsicle can try to turn these diffs into full frames (a process known as unoptimization), but sometimes cannot do this due to complicated color palettes, transparency issues, etc.
 
