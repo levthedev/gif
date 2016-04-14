@@ -7,8 +7,12 @@ loops = 1
 
 options = {}
 OptionParser.new do |parser|
-  parser.on("--l", "--loops") do |times|
+  parser.on("--l", "--loops") do |_|
     loops = ARGV.find { |arg| /\A\d+\z/.match(arg).to_s.to_i > 0 }
+  end
+
+  parser.on("--m", "--modern") do |_|
+    options[:modern] = true
   end
 
   parser.on("--setup", "--s") do |_|
@@ -17,6 +21,7 @@ OptionParser.new do |parser|
     `brew install gifsicle`
     `brew tap eddieantonio/eddieantonio`
     `brew install imgcat`
+    `npm install -g imgcat-cli`
     puts "Finished installing dependencies!"
   end
 
@@ -25,7 +30,9 @@ OptionParser.new do |parser|
     puts [
       "`gif` will play a random gif in your terminal",
       "`gif [search_terms]` will filter by search terms. for example, `gif cute pikachu` will cause you to immediately feel 100% happier.",
-      "`--loops` or `--l` will let you loop the gif. for example, `gif cute pikachu --loops 10` will cause you to immediately feel 1000% happier.",
+      "`--modern will output much higher quality gifs but only works on iTerm 2.9 and later`",
+      "if you want your gifs to be higher quality by default, set $MODERN_TERMINAL to be 'true' - add `export MODERN_TERMINAL='true'` to your bash_profile/fish_config",
+      "`--loops` or `--l` will let you loop the gif on older versions of iTerm. for example, `gif cute pikachu --loops 10` will cause you to immediately feel 1000% happier.",
       "`--help`, `--h`, or `man` will print this paragraph."
     ]
   end
@@ -33,6 +40,6 @@ end.parse!
 
 if options[:setup].nil? && options[:help].nil?
   tags = ARGV.join "+"
-  gif = Gif::CLI.new tags, loops
+  gif = Gif::CLI.new tags, loops, options[:modern]
   gif.fetch
 end
