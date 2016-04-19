@@ -24,7 +24,7 @@ module Gif
     def generate_url
       fetch_url     = "https://api.giphy.com/v1/gifs/random?api_key=dc6zaTOxFJmzC&tag=#{@tags}"
       gif_json      = JSON.parse `curl -s '#{fetch_url}'`
-      original_url = gif_json["data"]["image_original_url"]
+      original_url  = gif_json["data"]["image_original_url"]
       fixed_height_url = gif_json["data"]["fixed_height_small_url"]
       @modern ? @gif_url = original_url : @gif_url = fixed_height_url
       @gif_sha      = Digest::SHA1.hexdigest @gif_url
